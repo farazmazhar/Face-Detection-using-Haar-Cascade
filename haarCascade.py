@@ -21,8 +21,8 @@ def faceDetect(image_color, image_gray):
         roi_gray = image_gray[y:y+h, x:x+w]
         roi_color = image_color[y:y+h, x:x+w]
         
-        # Eyes detection. Default params.
-        eyes = eye_cascade.detectMultiScale(roi_gray)
+        # Eyes detection.
+        eyes = eye_cascade.detectMultiScale(roi_gray, 1.3, 5)
         for (ex,ey,ew,eh) in eyes:
             cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
             
